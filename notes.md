@@ -18,11 +18,18 @@ Question:
     4. classes are subsumed by classes from the ODP)
 
 
+Distinguish between
+
+* Data generated according to a design pattern
+* The use of the design pattern itself:
+  - Literal usage
+  - Literal usage at QName level
+  - Extension of the pattern
+  - Reflection of the pattern (structural correspondence) 
+    *This requires some abstract representation of the pattern, .*
 
 
-
-
-subgraph isomorphism
+### Subgraph Isomorphism
 
 ```python
 from networkx.algorithms import isomorphism
