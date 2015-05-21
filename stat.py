@@ -94,8 +94,6 @@ def get_stats(name):
     return cached_stats, stat_logger
 
 
-
-
 def initialize_p2u():
     with open(PATTERN2URL, 'r') as f:
         reader = csv.reader(f, delimiter=';', quotechar='"')
@@ -260,12 +258,13 @@ if __name__ == '__main__':
         # Start counting from 0, oh, smart!
         pattern_stats[url] = 0
 
+        # This query returns the usage of properties in axioms (not all of them)
         results = g.query(DOMAIN_RANGE_QUERY)
+        properties = set([str(p) for s, p, o in results])
+
 
         mapping = {}
-
         log.info("Anticipating occurrences in {} datasets.".format(len(lodl_documents)))
-        properties = set([str(p) for s, p, o in results])
         for p in properties:
             log.debug("Property {}".format(p))
             if p in property_stats:
